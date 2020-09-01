@@ -27,6 +27,28 @@ namespace properties
             return this._Id;
         }
 
+        public void SetName(string FirstName)
+        {
+            if (string.IsNullOrEmpty(FirstName))
+            {
+                throw new Exception("Name cannot be null or empty");
+            }
+            this._FirstName = FirstName;
+        }
+
+        public string GetName()
+        {
+            if (string.IsNullOrEmpty(this._FirstName))
+            {
+                return "No name";
+            }
+            else
+            {
+                return this._FirstName;
+            }
+             
+        }
+
 
     }
 
@@ -36,9 +58,14 @@ namespace properties
         static void Main(string[] args)
         {
             Students S1 = new Students();
-            S1.SetId(-100);
+            S1.SetId(100);
+            Console.WriteLine("Student id is {0}", S1.GetId());
 
-            
+            S1.SetName("");
+            Console.WriteLine("My name is {0}",S1.GetName());
+            Console.ReadLine();
+
+
             /*S1._Id = 100;
             S1._FirstName = "Darshana";
             S1._LastName = "Senevirathna";
